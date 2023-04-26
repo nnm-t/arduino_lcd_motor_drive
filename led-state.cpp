@@ -4,6 +4,18 @@ void LEDState::update()
 {
 	_lcd.setCursor(0, 1);
 	_lcd.print(">");
+}
+
+void LEDState::update_always()
+{
+	_lcd.setCursor(1, 1);
+	_lcd.print("LED");
+
+	_lcd.setCursor(4, 1);
+	_lcd.print(neopixel_state_name[static_cast<uint8_t>(_state)]);
+
+	_lcd.setCursor(9, 1);
+	_lcd.print(neopixel_color_name[_color_index]);
 
 	if (_color_index == neopixel_color_num)
 	{
@@ -74,18 +86,6 @@ void LEDState::update()
 	{
 		_is_fade_reverse = true;
 	}
-}
-
-void LEDState::update_always()
-{
-	_lcd.setCursor(1, 1);
-	_lcd.print("LED");
-
-	_lcd.setCursor(4, 1);
-	_lcd.print(neopixel_state_name[static_cast<uint8_t>(_state)]);
-
-	_lcd.setCursor(9, 1);
-	_lcd.print(neopixel_color_name[_color_index]);
 }
 
 void LEDState::on_right_pressed()
