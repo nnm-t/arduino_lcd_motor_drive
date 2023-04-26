@@ -16,8 +16,9 @@ namespace {
 
   // NeoPixel
   // ピン: 12
+	constexpr const uint8_t neopixel_num = 10;
   constexpr const uint8_t neopixel_pin = 12;
-  Adafruit_NeoPixel neopixel(LEDState::neopixel_num, neopixel_pin);
+  Adafruit_NeoPixel neopixel(neopixel_num, neopixel_pin);
   
   // PWM
   // ピン: 3, 11
